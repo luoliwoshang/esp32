@@ -1,0 +1,3 @@
+{
+    "go.buildTags": "esp32,esp32_coreboard_v2"
+}
