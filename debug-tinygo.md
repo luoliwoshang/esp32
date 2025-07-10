@@ -72,3 +72,18 @@ make -n tinygo
 请务必将上面模板中的 <在此处粘贴...> 替换为您在上一步中复制的真实值。
 
 
+并且对于调试的CGO来说编译的clang-19，并不会自己携带一些系统的cflag需要在 `CGO_CPPFLAGS` 和  `CGO_LDFLAGS` 前分别加上连接系统库
+
+```bash
+esp32 on  main [!?] 
+❯ xcrun --show-sdk-path
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+```
+
+```json
+{
+    "CGO_CPPFLAGS":"-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk <在此处粘贴 CGO_CPPFLAGS 的值>",
+    "CGO_LDFLAGS": "-F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib <在此处粘贴 CGO_LDFLAGS 的值>"
+}
+
+```
