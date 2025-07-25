@@ -1,9 +1,13 @@
-#include "driver/gpio.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include <stdio.h>
+// External functions from your LLVM-compiled .o file
+extern int printf(const char *format, ...);
+extern void gpio_reset_pin(int pin);
+extern void gpio_set_direction(int pin, int mode);
+extern int gpio_get_level(int pin);
+extern void vTaskDelay(int ticks);
 
-// 先给咱的按钮小爪子取个好听的名字喵！
+// GPIO constants
+#define GPIO_NUM_34 34
+#define GPIO_MODE_INPUT 1
 #define BUTTON_PIN GPIO_NUM_34
 
 void app_main(void) {
@@ -33,6 +37,6 @@ void app_main(void) {
 
         // 打个小盹，休息 200 毫秒，免得太累了喵~
         // 在ESP-IDF里，咱用 vTaskDelay 来打盹哦！
-        vTaskDelay(pdMS_TO_TICKS(200));
+        vTaskDelay(200);
     }
 }
