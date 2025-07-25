@@ -68,3 +68,6 @@ This is an ESP32 button monitoring project using ESP-IDF (Espressif IoT Developm
 - 当前正在进行LLVM编译器集成，探索独立于ESP-IDF构建程序的可能性
 - 目前已经能够成功编译单个.c文件，但仍需解决外部符号链接问题
 - 正在研究如何在不依赖ESP-IDF编译系统的情况下链接必要的库文件
+
+## 发现和使用方式
+- 记录目前的发现和使用方式等等
