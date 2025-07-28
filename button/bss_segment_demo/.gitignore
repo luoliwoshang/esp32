@@ -1,0 +1,13 @@
+# 忽略编译后的可执行文件
+bss_demo
+bss_compare1
+bss_compare2
+
+# 忽略编译产生的其他文件
+*.o
+*.a
+*.so
+*.dylib
+
+# 忽略调试文件
+*.dSYM/
